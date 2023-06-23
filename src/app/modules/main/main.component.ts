@@ -74,6 +74,7 @@ export class MainComponent implements OnInit, OnDestroy {
     this.isFriendsRouteActive = false;
     this.isFinished = false;
     this.lastIndex = 0;
+    this.posts$.next([]);
     this.getCurrentUser();
   }
 
