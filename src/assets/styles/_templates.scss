@@ -96,6 +96,12 @@
   align-items: flex-start;
 }
 
+%d-flex-col-end {
+  @extend %d-flex-col;
+
+  align-items: flex-end;
+}
+
 %d-flex-col-stretch {
   @extend %d-flex-col;
 
@@ -136,4 +142,10 @@
   @extend %d-flex-col-start;
 
   justify-content: end;
+}
+
+%d-flex-col-end-center {
+  @extend %d-flex-col-end;
+
+  justify-content: center;
 }

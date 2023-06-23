@@ -1,7 +1,7 @@
 @import "src/assets/styles/styles";
 
 $container-height: px2rem(45);
-$circle-size:  px2rem(8);
+$circle-size: px2rem(8);
 
 .friends-container {
 
@@ -49,6 +49,10 @@ $circle-size:  px2rem(8);
         .phone {
           font-size: px2rem(12);
           font-weight: lighter;
+        }
+
+        &.info-end {
+          @extend %d-flex-col-end-center;
         }
       }
     }
