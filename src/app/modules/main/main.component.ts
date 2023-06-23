@@ -15,6 +15,9 @@ import { Router } from '@angular/router';
 import { ERoutePath } from '../../shared/enums/route-path.enum';
 import { IUser } from '../../shared/login/interfaces/user.interface';
 import { UsersService } from '../../shared/login/services/users.service';
+import { NotificationService } from '../../shared/services/notification.service';
+import { ENotificationMessage } from '../../shared/enums/notification-message.enum';
+import { SUCCESS } from '../../shared/constants/notification.constant';
 
 const ORDER_BY_KEY = 'createdDate';
 const BATCH = 8;
@@ -51,7 +54,8 @@ export class MainComponent implements OnInit, OnDestroy {
     private readonly _postApiService: PostApiService,
     private readonly _changeDetectorRef: ChangeDetectorRef,
     private readonly _storageService: StorageService,
-    private readonly _usersService: UsersService
+    private readonly _usersService: UsersService,
+    private readonly _notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -72,9 +76,13 @@ export class MainComponent implements OnInit, OnDestroy {
     this.getCurrentUser();
   }
 
-  public dialogClose(isClosed: IPost | boolean): void {
-    if (typeof isClosed !== 'boolean') {
-      this.posts$.next([isClosed, ...this.posts$.value]);
+  public dialogClose(isClosed: boolean): void {
+    if (isClosed) {
+      this._notificationService.show(
+        ENotificationMessage.SUCCESS_ADD_POST,
+        '',
+        SUCCESS
+      );
     }
   }
 

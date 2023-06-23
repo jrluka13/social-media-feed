@@ -3,7 +3,6 @@ import {
   FormBuilder, FormControl,
   FormGroup, Validators,
 } from '@angular/forms';
-import {MatDialogRef} from "@angular/material/dialog";
 
 import { PostApiService } from '../../services/post-api.service';
 import { StorageService } from '../../../services/storage.service';
@@ -28,7 +27,6 @@ export class CreatePostDialogComponent extends BaseComponent implements OnInit {
 
   constructor(
     protected override readonly _validation: ValidationService,
-    private readonly _dialogRef: MatDialogRef<CreatePostDialogComponent>,
     private readonly _formBuilder: FormBuilder,
     private readonly _storageService: StorageService,
     private readonly _postApiService: PostApiService
@@ -42,7 +40,6 @@ export class CreatePostDialogComponent extends BaseComponent implements OnInit {
   }
 
   public createPost(): void {
-    this._dialogRef.close({...this.form.value, userId: this._uid});
     this._postApiService
       .addPost({ ...this.form.value, userId: this._uid })
       .subscribe();

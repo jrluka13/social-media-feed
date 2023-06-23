@@ -17,7 +17,7 @@
     <mat-dialog-actions class="mat-dialog-actions">
       <button mat-raised-button [mat-dialog-close]="false">Close</button>
 
-      <button mat-raised-button color="accent" [disabled]="!form.valid"
+      <button mat-raised-button color="accent" [mat-dialog-close]="true" [disabled]="!form.valid"
               (click)="createPost()">Create
       </button>
     </mat-dialog-actions>

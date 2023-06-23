@@ -5,9 +5,11 @@ import { PostApiServiceStub } from '../../../../tests/stubs/post-api-service';
 import { HttpClientModule } from '@angular/common/http';
 import { StorageService } from '../../shared/services/storage.service';
 import { StorageServiceStub } from '../../../../tests/stubs/storage-service';
-import {UsersService} from "../../shared/login/services/users.service";
-import {UsersServiceStub} from "../../../../tests/stubs/users-service";
-import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import { UsersService } from '../../shared/login/services/users.service';
+import { UsersServiceStub } from '../../../../tests/stubs/users-service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NotificationService } from '../../shared/services/notification.service';
+import { NotificationServiceStub } from '../../../../tests/stubs/notification-service';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -21,6 +23,7 @@ describe('MainComponent', () => {
         { provide: PostApiService, useClas: PostApiServiceStub },
         { provide: StorageService, useClass: StorageServiceStub },
         { provide: UsersService, useClass: UsersServiceStub },
+        { provide: NotificationService, useClass: NotificationServiceStub },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });

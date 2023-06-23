@@ -18,10 +18,6 @@ describe('CreatePostDialogComponent', () => {
       declarations: [CreatePostDialogComponent],
       imports: [],
       providers: [
-        {
-          provide: MatDialogRef,
-          useValue: {},
-        },
         { provide: ValidationService, useClass: ValidationServiceStub },
         { provide: StorageService, useClass: StorageServiceStub },
         { provide: PostApiService, useClass: PostApiServiceStub },

@@ -1,7 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter, Input, OnDestroy,
+  EventEmitter,
+  Input,
+  OnDestroy,
   Output,
 } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,8 +14,8 @@ import { IPost } from '../../interfaces/post.interface';
 import { AuthService } from '../../../login/services/auth.service';
 import { UsersService } from '../../../login/services/users.service';
 import { StorageService } from '../../../services/storage.service';
-import {Subject} from "rxjs";
-import {EIcon} from "../../../enums/icon.enum";
+import { Subject } from 'rxjs';
+import { EIcon } from '../../../enums/icon.enum';
 
 @Component({
   selector: 'app-toolbar',
@@ -21,7 +23,7 @@ import {EIcon} from "../../../enums/icon.enum";
   styleUrls: ['./toolbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ToolbarComponent implements OnDestroy{
+export class ToolbarComponent implements OnDestroy {
   @Input() isFriendsRouteActive: boolean = false;
 
   public readonly ERoutePath = ERoutePath;
@@ -30,9 +32,7 @@ export class ToolbarComponent implements OnDestroy{
 
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  @Output() dialogClose: EventEmitter<IPost | boolean> = new EventEmitter<
-    IPost | boolean
-  >();
+  @Output() dialogClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() navigateToFriendsRoute: EventEmitter<void> =
     new EventEmitter<void>();
   @Output() navigateToMainRoute: EventEmitter<void> = new EventEmitter<void>();
