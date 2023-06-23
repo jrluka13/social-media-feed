@@ -1,7 +1,7 @@
 <mat-drawer-container class="drawer-container">
   <mat-drawer class="mat-drawer" mode="side" opened>
     <app-toolbar [isFriendsRouteActive]="isFriendsRouteActive" (dialogClose)="dialogClose($event)" (navigateToFriendsRoute)="isFriendsRouteActive = true"
-                 (navigateToMainRoute)="isFriendsRouteActive = false"></app-toolbar>
+                 (navigateToMainRoute)="navigateToMainRoute()"></app-toolbar>
   </mat-drawer>
   <mat-drawer-content class="drawer-content" infiniteScroll
                       [infiniteScrollDistance]="1"

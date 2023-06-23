@@ -66,6 +66,12 @@ export class MainComponent implements OnInit, OnDestroy {
     this.destroy$.unsubscribe();
   }
 
+  public navigateToMainRoute(): void {
+    this.isFriendsRouteActive = false;
+    this.isFinished = false;
+    this.getCurrentUser();
+  }
+
   public dialogClose(isClosed: IPost | boolean): void {
     if (typeof isClosed !== 'boolean') {
       this.posts$.next([isClosed, ...this.posts$.value]);
@@ -126,7 +132,7 @@ export class MainComponent implements OnInit, OnDestroy {
         map((res) => {
           const posts: IPost[] = [];
 
-          this._currentUser.getValue().friends.forEach((friend) => {
+          this._currentUser.getValue()?.friends?.forEach((friend) => {
             for (const key in res) {
               if (res.hasOwnProperty(key) && res[key].author === friend.name)
                 posts.push({
