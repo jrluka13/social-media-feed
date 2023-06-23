@@ -2,6 +2,8 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ElementRef,
+  HostListener,
   Inject,
   OnDestroy,
   OnInit,
@@ -16,8 +18,8 @@ import { BaseComponent } from '../../../components/base-component/base.component
 import { EPost } from '../../enums/post.enum';
 import { USER_KEY } from '../../../constants/storage.constant';
 import { Subject, takeUntil } from 'rxjs';
-import {IUser} from "../../../login/interfaces/user.interface";
-import {ValidationService} from "../../../services/validation.service";
+import { IUser } from '../../../login/interfaces/user.interface';
+import { ValidationService } from '../../../services/validation.service';
 
 @Component({
   selector: 'app-comments-dialog',
@@ -29,6 +31,16 @@ export class CommentsDialogComponent
   extends BaseComponent
   implements OnInit, OnDestroy
 {
+  @HostListener('document:click', ['$event'])
+  onClick(event: Event) {
+    if (
+      !this.el.nativeElement.contains(event.target) &&
+      this.isDialogInitialized
+    ) {
+      this._dialogRef?.close(this.post.comments);
+    }
+  }
+
   public form: FormGroup;
 
   public post: IPost;
@@ -37,9 +49,12 @@ export class CommentsDialogComponent
 
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
+  private isDialogInitialized: boolean = false;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public postId: string,
     protected override readonly _validation: ValidationService,
+    private readonly el: ElementRef,
     private readonly _dialogRef: MatDialogRef<CommentsDialogComponent>,
     private readonly _formBuilder: FormBuilder,
     private readonly _storageService: StorageService,
@@ -50,6 +65,8 @@ export class CommentsDialogComponent
   }
 
   ngOnInit(): void {
+    setTimeout(() => (this.isDialogInitialized = true));
+
     this.buildForm();
     this.fetchPost();
   }
