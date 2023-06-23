@@ -73,6 +73,7 @@ export class MainComponent implements OnInit, OnDestroy {
   public navigateToMainRoute(): void {
     this.isFriendsRouteActive = false;
     this.isFinished = false;
+    this.lastIndex = 0;
     this.getCurrentUser();
   }
 
