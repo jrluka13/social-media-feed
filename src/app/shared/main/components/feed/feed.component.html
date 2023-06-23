@@ -1,4 +1,5 @@
 <div
+  *ngIf="posts.length; else emptyTemplate"
   class="feed-container">
   <mat-card class="card" *ngFor="let post of posts">
     <mat-card-header>
@@ -23,5 +24,10 @@
     </mat-card-actions>
   </mat-card>
 </div>
+
+<ng-template #emptyTemplate>
+  <span>Add a friend, you could see their posts!</span>
+</ng-template>
+
 
 
