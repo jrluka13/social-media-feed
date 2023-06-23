@@ -1,5 +1,7 @@
 @import "src/assets/styles/styles";
 
+$icon-size: px2rem(112);
+
 .toolbar-container {
   @extend %d-flex-col-center-between;
   padding: px2rem(0) px2rem(100) px2rem(50) px2rem(20);
@@ -10,14 +12,11 @@
     margin-bottom: px2rem(30);
 
     .logo {
-      background-image: url("https://thumbs.dreamstime.com/b/demo-icon-demo-147077326.jpg");
-      min-height: px2rem(100);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      cursor: pointer;
-      z-index: 1;
+      .logo-icon {
+        cursor: pointer;
+        width: $icon-size;
+        height: $icon-size;
+      }
     }
   }
 
