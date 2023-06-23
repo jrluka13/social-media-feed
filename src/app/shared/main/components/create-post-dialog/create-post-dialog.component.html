@@ -1,0 +1,25 @@
+<div class="create-post-dialog">
+  <div class="top-section">
+    <span mat-dialog-title>New Post</span>
+
+    <mat-dialog-content>
+      <mat-form-field class="content-container" appearance="outline">
+        <mat-label>{{EPost.CONTENT | titlecase}}</mat-label>
+        <textarea matInput
+                  [formControl]="this.getControl(EPost.CONTENT)"></textarea>
+        <mat-error
+          *ngIf="getControl(EPost.CONTENT).invalid">{{getValidationMessage(EPost.CONTENT)}}</mat-error>
+      </mat-form-field>
+    </mat-dialog-content>
+  </div>
+
+  <div class="bottom-section">
+    <mat-dialog-actions class="mat-dialog-actions">
+      <button mat-raised-button [mat-dialog-close]="false">Close</button>
+
+      <button mat-raised-button color="accent" [disabled]="!form.valid"
+              (click)="createPost()">Create
+      </button>
+    </mat-dialog-actions>
+  </div>
+</div>

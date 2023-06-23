@@ -1,0 +1,139 @@
+@import './mixins';
+
+//flex templates - row
+%d-flex-row {
+  display: flex;
+  @include flex-direction(row);
+}
+
+%d-flex-row-start {
+  @extend %d-flex-row;
+
+  align-items: flex-start;
+}
+
+%d-flex-row-start-between {
+  @extend %d-flex-row-start;
+
+  justify-content: space-between;
+}
+
+%d-flex-row-center {
+  @extend %d-flex-row;
+
+  align-items: center;
+}
+
+%d-flex-row-end {
+  @extend %d-flex-row;
+
+  align-items: flex-end;
+}
+
+%d-flex-row-start-start {
+  @extend %d-flex-row-start;
+
+  justify-content: flex-start;
+}
+
+%d-flex-row-start-center {
+  @extend %d-flex-row-start;
+
+  justify-content: center;
+}
+
+%d-flex-row-center-start {
+  @extend %d-flex-row-center;
+
+  justify-content: flex-start;
+}
+
+%d-flex-row-center-center {
+  @extend %d-flex-row-center;
+
+  justify-content: center;
+}
+
+%d-flex-row-start-end {
+  @extend %d-flex-row-start;
+
+  justify-content: flex-end;
+}
+
+%d-flex-row-center-end {
+  @extend %d-flex-row-center;
+
+  justify-content: flex-end;
+}
+
+%d-flex-row-center-between {
+  @extend %d-flex-row-center;
+
+  justify-content: space-between;
+}
+
+%d-flex-row-end-center {
+  @extend %d-flex-row-end;
+
+  justify-content: center;
+}
+
+//flex templates - column
+%d-flex-col {
+  display: flex;
+  @include flex-direction(column);
+}
+
+%d-flex-col-center {
+  @extend %d-flex-col;
+
+  align-items: center;
+}
+
+%d-flex-col-start {
+  @extend %d-flex-col;
+
+  align-items: flex-start;
+}
+
+%d-flex-col-stretch {
+  @extend %d-flex-col;
+
+  align-items: stretch;
+}
+
+%d-flex-col-center-center {
+  @extend %d-flex-col-center;
+
+  justify-content: center;
+}
+
+%d-flex-col-center-start {
+  @extend %d-flex-col-center;
+
+  justify-content: flex-start;
+}
+
+%d-flex-col-center-end {
+  @extend %d-flex-col-center;
+
+  justify-content: flex-end;
+}
+
+%d-flex-col-center-between {
+  @extend %d-flex-col-center;
+
+  justify-content: space-between;
+}
+
+%d-flex-col-start-center {
+  @extend %d-flex-col-start;
+
+  justify-content: center;
+}
+
+%d-flex-col-start-end {
+  @extend %d-flex-col-start;
+
+  justify-content: end;
+}

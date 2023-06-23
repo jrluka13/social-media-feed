@@ -1,0 +1,59 @@
+@import "src/assets/styles/styles";
+
+.comments-dialog {
+  width: px2rem(600);
+
+  .top-section {
+    min-height: px2rem(200);
+
+    .title-container {
+      @extend %d-flex-row-center-between;
+
+      .close-icon {
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.03);
+        }
+      }
+    }
+
+    .comment-container {
+      .userName {
+        font: {
+          weight: 600;
+        }
+      }
+    }
+  }
+
+  .bottom-section {
+    .mat-dialog-actions {
+      @extend %d-flex-row-center-center;
+
+      ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+        display: none;
+      }
+
+      .content-container {
+        flex-grow: 1;
+        margin-right: px2rem(20);
+
+
+        .comments-textarea {
+          resize: none;
+          max-height: px2rem(80);
+          font: inherit;
+          outline: none;
+
+        }
+      }
+    }
+  }
+}
+
+@include sm-screen() {
+  .comments-dialog {
+    width: px2rem(400);
+  }
+}

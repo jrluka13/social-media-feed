@@ -1,0 +1,32 @@
+<div class="comments-dialog">
+  <div class="top-section">
+    <div mat-dialog-title class="title-container">
+      <span>Comments</span>
+      <mat-icon class="close-icon" fontIcon="close" (click)="closeDialog()"></mat-icon>
+    </div>
+    <div mat-dialog-content>
+      <mat-list>
+        <mat-list-item class="comment-container" *ngFor="let comments of post?.comments">
+          <div><span class="userName">{{comments.userName}}</span>: <span>{{comments.text | titlecase}}</span></div>
+
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+  </div>
+
+  <div class="bottom-section">
+    <div mat-dialog-actions class="mat-dialog-actions">
+      <mat-form-field class="content-container" appearance="outline">
+        <input matInput placeholder="Add a comment..."
+               [formControl]="this.getControl(EPost.COMMENTS)"/>
+
+      </mat-form-field>
+      <button mat-raised-button class="create-btn" color="primary" [disabled]="!getControl(EPost.COMMENTS).value"
+              (click)="createComment()">
+        Post
+      </button>
+    </div>
+  </div>
+</div>
+

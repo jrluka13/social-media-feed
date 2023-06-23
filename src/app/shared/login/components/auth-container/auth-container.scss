@@ -1,0 +1,47 @@
+@import "src/assets/styles/styles";
+
+$width-percent-50: 50%;
+
+.login-container {
+  @extend %d-flex-row-center-center;
+
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+
+  .login-wrap {
+    @extend %d-flex-row;
+    width: px2rem(1170);
+    background: #fff;
+    overflow: hidden;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    .login_image {
+      background-image: url('https://img.uxwing.com/wp-content/themes/uxwing/download/web-app-development/demo-icon.png');
+      min-height: px2rem(500);
+      width: $width-percent-50;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    ::ng-deep {
+      .mat-mdc-form-field {
+        width: px2rem(248);
+      }
+    }
+  }
+}
+
+@include xs-screen() {
+  .login-container{
+    .login-wrap {
+      .login_image {
+        display: none;
+      }
+    }
+  }
+}

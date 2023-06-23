@@ -1,0 +1,90 @@
+//media query mixins
+@mixin xs-screen() {
+  @media screen and (max-width: 520px) {
+    @content;
+  }
+}
+
+@mixin sm-screen() {
+  @media screen and (min-width: 321px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin md-screen() {
+  @media screen and (min-width: 769px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin lg-screen() {
+  @media screen and (min-width: 992px) and (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin xl-screen() {
+  @media screen and (min-width: 1281px) {
+    @content;
+  }
+}
+
+//box-sizing mixins
+@mixin box-sizing($type) {
+  -webkit-box-sizing: $type;
+  -moz-box-sizing: $type;
+  box-sizing: $type;
+}
+
+//flex mixins
+@mixin flex-direction($direction) {
+  @if $direction == column {
+    -webkit-flex-direction: vertical;
+    -moz-flex-direction: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  } @else {
+    -webkit-flex-direction: horizontal;
+    -moz-flex-direction: horizontal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+//font mixins
+@mixin font($family, $size, $weight, $height, $color) {
+  color: $color;
+  font-family: $family;
+  font-size: $size;
+  font-style: normal;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+// layout mixins
+@mixin col-2($columns-gap) {
+  width: calc((100% - #{$columns-gap}) / 2);
+}
+
+@mixin col-3($columns-gap) {
+  width: calc((100% - #{$columns-gap} * 2) / 3);
+}
+
+@mixin col-4($columns-gap) {
+  width: calc((100% - #{$columns-gap} * 3) / 4);
+}
+
+@mixin col-2-of-3($columns-gap) {
+  width: calc(((100% - #{$columns-gap} * 2) / 3) * 2 +  #{$columns-gap});
+}
+
+@mixin dynamic-items-by-count($selector, $count, $gap) {
+  @for $i from 2 to $count + 1 {
+    #{$selector}:first-child:nth-last-child(#{$i}),
+    #{$selector}:first-child:nth-last-child(#{$i}) ~ #{$selector} {
+      width: calc((100% - #{$gap} * #{$i - 1}) / #{$i});
+    }
+  }
+}

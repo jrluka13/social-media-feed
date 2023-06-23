@@ -1,0 +1,31 @@
+@import "src/assets/styles/styles";
+
+$width-percent-50: 50%;
+$create-link: #ffd740;
+
+.form-container {
+  @extend %d-flex-col-center-center;
+  flex-wrap: wrap;
+  width: $width-percent-50;
+
+  .form-content {
+    @extend %d-flex-col-center-center;
+    flex-wrap: wrap;
+
+    .create-link {
+      color: $create-link;
+      cursor: pointer;
+      margin-top: px2rem(20);
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .top-section, .bottom-section {
+      @extend %d-flex-row-center-center;
+      flex-wrap: wrap;
+      gap: px2rem(10);
+    }
+  }
+}

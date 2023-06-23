@@ -1,0 +1,19 @@
+<mat-drawer-container class="drawer-container">
+  <mat-drawer class="mat-drawer" mode="side" opened>
+    <app-toolbar [isFriendsRouteActive]="isFriendsRouteActive" (dialogClose)="dialogClose($event)" (navigateToFriendsRoute)="isFriendsRouteActive = true"
+                 (navigateToMainRoute)="isFriendsRouteActive = false"></app-toolbar>
+  </mat-drawer>
+  <mat-drawer-content class="drawer-content" infiniteScroll
+                      [infiniteScrollDistance]="1"
+                      [infiniteScrollThrottle]="1000"
+                      [scrollWindow]="false"
+                      (scrolled)="onScroll()"
+
+  >
+    <router-outlet></router-outlet>
+
+    <app-feed *ngIf="!isFriendsRouteActive" [posts]="posts$ | async" (likePost)="likePost($event)"
+              (scroll)="onScroll()"></app-feed>
+  </mat-drawer-content>
+</mat-drawer-container>
+

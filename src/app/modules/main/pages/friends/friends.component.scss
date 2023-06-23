@@ -1,0 +1,57 @@
+@import "src/assets/styles/styles";
+
+$container-height: px2rem(45);
+$circle-size:  px2rem(8);
+
+.friends-container {
+
+  width: px2rem(500);
+
+  .mat-card-header {
+    @extend %d-flex-row-center-center;
+    margin-bottom: px2rem(20);
+
+    .mat-form-field {
+      flex-grow: 1;
+      margin-right: px2rem(20);
+    }
+
+    ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+  }
+
+  .card-content {
+    text-align: center;
+
+    .friend-container {
+      @extend %d-flex-row-center-between;
+      padding: 0 px2rem(10);
+      margin-bottom: px2rem(20);
+      border: px2rem(1) solid silver;
+      border-radius: px2rem(8);
+
+      .friend-wrapper {
+        @extend %d-flex-row-center;
+
+        .user-icon {
+          font-size: $container-height;
+          width: $container-height;
+          height: $container-height;
+        }
+      }
+
+      .friend-info {
+        @extend %d-flex-col-start-end;
+        height: $container-height;
+        font-weight: 500;
+
+        .phone {
+          font-size: px2rem(12);
+          font-weight: lighter;
+        }
+      }
+    }
+  }
+}
+

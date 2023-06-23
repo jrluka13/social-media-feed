@@ -1,0 +1,58 @@
+@import "src/assets/styles/styles";
+
+.toolbar-container {
+  @extend %d-flex-col-center-between;
+  padding: px2rem(0) px2rem(100) px2rem(50) px2rem(20);
+
+  .logo-container {
+    width: 100%;
+    min-height: px2rem(100);
+    margin-bottom: px2rem(30);
+
+    .logo {
+      background-image: url("https://thumbs.dreamstime.com/b/demo-icon-demo-147077326.jpg");
+      min-height: px2rem(100);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      cursor: pointer;
+      z-index: 1;
+    }
+  }
+
+  .content {
+    width: 100%;
+    flex-grow: 1;
+
+    mat-icon {
+      font-size: px2rem(28);
+      width: px2rem(28);
+      height: px2rem(28);
+    }
+
+    .create-container {
+      margin-top: px2rem(32);
+    }
+
+
+    .create-container, .friends-container {
+      @extend %d-flex-row-center;
+      cursor: pointer;
+      font-size: px2rem(22);
+      gap: px2rem(10);
+    }
+  }
+
+  .footer {
+    margin-top: px2rem(20);
+  }
+}
+
+@include sm-screen() {
+  .toolbar-container {
+    padding: px2rem(0) px2rem(20) px2rem(50) px2rem(20);
+  }
+}
+
+

@@ -1,0 +1,16 @@
+@import "src/assets/styles/styles";
+
+.drawer-container {
+  width: 100%;
+  height: 100%;
+
+  .mat-drawer {
+    width: fit-content;
+  }
+
+  .drawer-content {
+    @extend %d-flex-col-center-start;
+
+    padding-top: px2rem(20);
+  }
+}

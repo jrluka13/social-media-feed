@@ -1,0 +1,27 @@
+<div class="friends-container">
+  <mat-card>
+    <mat-card-header class="mat-card-header">
+      <mat-form-field class="mat-form-field" appearance="outline">
+        <input matInput placeholder="Add new friend by username.." [formControl]="this.getControl(EFriend.NAME)"/>
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="addFriend()">ADD</button>
+
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <h1>Friends ({{friendsQuantity}})</h1>
+      <div class="friend-container" *ngFor="let friend of friends">
+        <div class="friend-wrapper">
+          <mat-icon class="user-icon">{{EIcon.ACCOUNT_CIRCLE}}</mat-icon>
+          <div class="friend-info">
+            <span>{{friend.name}}</span>
+            <span class="phone">{{friend.phone}}</span>
+          </div>
+        </div>
+        <div class="friend-info">
+          <span>Email: {{friend.email}}</span>
+          <span>Friends: {{friend?.friends?.length || 0}}</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,62 @@
+@import "../../../../../assets/styles/styles";
+
+.feed-container {
+  .card {
+    margin-bottom: px2rem(30);
+
+    .actions-container {
+      @extend %d-flex-row-center-between;
+
+      .likes-wrapper {
+        @extend %d-flex-row-center-center;
+        gap: px2rem(5);
+
+        .favorite-icon {
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+  }
+}
+
+@include sm-screen() {
+  .feed-container {
+    .card {
+      min-width: px2rem(200);
+    }
+  }
+}
+
+@include md-screen() {
+  .feed-container {
+    .card {
+      width: px2rem(500);
+    }
+  }
+}
+
+@include lg-screen() {
+  .feed-container {
+    .card {
+      width: px2rem(600);
+    }
+  }
+}
+
+@include xl-screen() {
+  .feed-container {
+    .card {
+      width: px2rem(700);
+    }
+  }
+}
+
+

@@ -1,0 +1,40 @@
+<app-auth-container>
+  <form [formGroup]="form" class="form-container">
+    <h1>Create Account</h1>
+    <div class="form-content">
+      <div class="top-section">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ESignup.EMAIL | titlecase}}</mat-label>
+          <input matInput [formControl]="this.getControl(ESignup.EMAIL)">
+          <mat-error
+            *ngIf="getControl(ESignup.EMAIL).invalid">{{getValidationMessage(ESignup.EMAIL)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{ESignup.PASSWORD | titlecase}}</mat-label>
+          <input matInput [type]="type" [formControl]="this.getControl(ESignup.PASSWORD)">
+          <button mat-icon-button matSuffix (click)="isVisible = !isVisible">
+            <mat-icon>{{passwordHideIcon}}</mat-icon>
+          </button>
+          <mat-error
+            *ngIf="getControl(ESignup.PASSWORD).invalid">{{getValidationMessage(ESignup.PASSWORD)}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="bottom-section">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ESignup.NAME | titlecase}}</mat-label>
+          <input matInput [formControl]="this.getControl(ESignup.NAME)">
+          <mat-error
+            *ngIf="getControl(ESignup.NAME).invalid">{{getValidationMessage(ESignup.NAME)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{ESignup.PHONE | titlecase}}</mat-label>
+          <input matInput [type]="EInputType.NUMBER" [formControl]="this.getControl(ESignup.PHONE)">
+          <mat-error
+            *ngIf="getControl(ESignup.PHONE).invalid">{{getValidationMessage(ESignup.PHONE)}}</mat-error>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="signUp()">Sign Up</button>
+      <a class="create-link" (click)="navigateToLogin()">Back to Login</a>
+    </div>
+  </form>
+</app-auth-container>

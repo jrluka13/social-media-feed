@@ -1,0 +1,20 @@
+<div class="toolbar-container">
+  <div class="logo-container">
+    <div class="logo" (click)="navigateToMain()"></div>
+  </div>
+  <div class="content">
+    <div class="friends-container toolbar-item" (click)="navigateTo(ERoutePath.FRIENDS)">
+      <mat-icon [fontIcon]=EIcon.FACE></mat-icon>
+      <span>Friends</span>
+    </div>
+    <div *ngIf="!isFriendsRouteActive" class="create-container toolbar-item" (click)="openCreateDialog()">
+      <mat-icon [fontIcon]=EIcon.ADD_CIRCLE_OUTLINE></mat-icon>
+      <span>Create</span>
+    </div>
+  </div>
+  <div>
+    <div class="footer">
+      <button mat-raised-button (click)="logout()">Log out</button>
+    </div>
+  </div>
+</div>

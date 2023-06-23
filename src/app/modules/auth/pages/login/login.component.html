@@ -1,0 +1,24 @@
+<app-auth-container>
+  <form [formGroup]="form" class="form-container">
+    <h1>Login</h1>
+    <div class="form-content">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ELogin.EMAIL | titlecase}}</mat-label>
+        <input matInput [formControl]="this.getControl(ELogin.EMAIL)">
+        <mat-error
+          *ngIf="getControl(ELogin.EMAIL).invalid">{{getValidationMessage(ELogin.EMAIL)}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ELogin.PASSWORD | titlecase}}</mat-label>
+        <input matInput [type]="type" [formControl]="this.getControl(ELogin.PASSWORD)">
+        <button mat-icon-button matSuffix (click)="isVisible = !isVisible">
+          <mat-icon>{{passwordHideIcon}}</mat-icon>
+        </button>
+        <mat-error
+          *ngIf="getControl(ELogin.PASSWORD).invalid">{{getValidationMessage(ELogin.PASSWORD)}}</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="signIn()">Sign In</button>
+      <a class="create-link" (click)="navigateToSignUp()">Create Account</a>
+    </div>
+  </form>
+</app-auth-container>

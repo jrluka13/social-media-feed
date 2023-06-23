@@ -1,0 +1,18 @@
+@import "src/assets/styles/styles";
+
+.create-post-dialog {
+  width: px2rem(460);
+
+  .top-section {
+    .content-container {
+      margin-top: px2rem(10);
+      display: block;
+    }
+  }
+
+  .bottom-section {
+    .mat-dialog-actions {
+      @extend %d-flex-row-center-end;
+    }
+  }
+}

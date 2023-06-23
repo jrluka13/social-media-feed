@@ -1,0 +1,6 @@
+// HTML Font size
+$html-font-size: 16;
+
+@function px2rem($pixels, $context: $html-font-size) {
+  @return #{calc($pixels / $context)}rem;
+}
