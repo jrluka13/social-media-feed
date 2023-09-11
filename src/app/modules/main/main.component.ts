@@ -21,6 +21,7 @@ import { SUCCESS } from '../../shared/constants/notification.constant';
 
 const ORDER_BY_KEY = 'createdDate';
 const BATCH = 8;
+const TEST_VARIABLE = 'testVariable'
 
 @Component({
   selector: 'app-main',
